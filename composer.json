@@ -1,0 +1,32 @@
+{
+    "name": "dev4traders/d4t-admin-demos",
+    "alias": "demos",
+    "description": "demos",
+    "type": "library",
+    "keywords": ["dcat-admin", "demos"],
+    "homepage": "https://github.com/dev4traders/d4t-admin-demos",
+    "license": "MIT",
+    "version": "1.1.1",
+    "authors": [
+        {
+            "name": "mikha",
+            "email": "mikha.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "D4T\\Admin\\Demos\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "D4T\\Admin\\Demos\\ServiceProvider",
+        "laravel": {
+            "providers": [
+                "D4T\\Admin\\Demos\\ServiceProvider"
+            ]
+        }
+    }
+}
