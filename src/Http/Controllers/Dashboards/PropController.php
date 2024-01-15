@@ -18,6 +18,10 @@ use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
 use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
 use D4T\Admin\Demos\Http\Widgets\TradingObjectiveCard;
 use D4T\Admin\Demos\Http\Widgets\ProfitTargetChartCard;
+use D4T\Core\Enums\StyleClassType;
+use Dcat\Admin\Layout\ColoredBadge;
+use Dcat\Admin\Widgets\BadgeDot;
+use Dcat\Admin\Widgets\SimpleCard;
 
 class PropController extends Controller
 {
@@ -39,22 +43,21 @@ class PropController extends Controller
             })
             ->body(function (Row $row) {
 
-                $features = new FeaturedCard();
-                $features->icon(DcatIcon::HOME(true));
+                $features = new FeaturedCard('Intermediate Instigator');
+                $features->icon('LIVE');
+                //                $features->class('danger');
 
-                $features->addFeature(new BadgeWithIcon(__('userdash.plan_type'), 'description', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_plan_type'))));
-                $features->addFeature(new BadgeWithIcon(__('userdash.platform'), 'title', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_platform'))));
-                $features->addFeature(new BadgeWithIcon(__('userdash.starting_balance'), 'title', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_starting_balance'))));
+                $features->addFeature(new BadgeWithIcon('Type', 'Two Step - Phase 1', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_plan_type'))));
+                $features->addFeature(new BadgeWithIcon('Platform', 'MT4', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_platform'))));
+                $features->addFeature(new BadgeWithIcon('Starting Balance', '$10000', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_starting_balance'))));
+                $features->addFeature(new BadgeWithIcon('Status', 'Active', (new BadgeDot(StyleClassType::SUCCESS))->render()));
 
-                $features->footerAddElement(new IconicLink(DcatIcon::EMAIL(true), __('userdash.contact_support'), config('admin.contact-us-link', '')));
-                $features->footerAddElement(new IconicLink(DcatIcon::SHARE_ALT(true), __('userdash.share_statistics'), config('admin.contact-us-link', '')));
+                $features->addFooterElement(new IconicLink(DcatIcon::EMAIL(true), 'Contact Support', config('admin.contact-us-link', '')));
+                $features->addFooterElement(new IconicLink(DcatIcon::SHARE_ALT(true), 'Share Statistics', config('admin.contact-us-link', '')));
 
-                $row->column(12, $features);
+                $row->column(12, new SimpleCard(null, $features));
             })
             ->body(function (Row $row) {
-
-                $widgetBalance = new BalanceChartWidget();
-                $row->column(9, $widgetBalance);
 
                 $widgetProfitTarget = new ProfitTargetChartCard(3000, 5000);
                 $row->column(3, $widgetProfitTarget);
@@ -71,9 +74,13 @@ class PropController extends Controller
             ->body($this->newline())
             ->body(function (Row $row) {
 
+                $widgetBalance = new BalanceChartWidget();
+                $row->column(12, $widgetBalance);
+            })
+            ->body(function (Row $row) {
+
                 $history = new TradeHistoryCard();
                 $row->column(12, $history);
-            })
-            ;
+            });
     }
 }
