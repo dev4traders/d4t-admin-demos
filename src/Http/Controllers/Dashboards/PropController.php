@@ -32,8 +32,8 @@ class PropController extends Controller
 
                 $widget = new Steps();
 
-                $widget->add('your are here', 'Step1 - Challenge Account', DcatIcon::HOME(true), true);
-                $widget->add('Next Phase', 'Step2 - Funded Account', DcatIcon::HOME(true));
+                $widget->add('your are here', 'Step1 - Challenge Account', true);
+                $widget->add('Next Phase', 'Step2 - Funded Account');
 
                 $row->column(12, $widget);
             })
