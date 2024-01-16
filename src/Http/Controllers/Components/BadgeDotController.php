@@ -19,13 +19,13 @@ class BadgeDotController extends Controller
         $types = StyleClassType::cases();
 
         $content->row(function (Row $row) use ($types) {
-            $alerts = collect($types)->map(function ($type) {
-                $alert = new BadgeDot($type);
+            $badges = collect($types)->map(function ($type) {
+                $badge = new BadgeDot($type);
 
-                return $alert->render();
+                return $badge->render();
             })->join(' ');
 
-            $card = new Card('badge', $alerts);
+            $card = new Card('badge', $badges);
 
 
             $row->column(6, $card);
