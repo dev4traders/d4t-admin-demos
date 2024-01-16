@@ -5,28 +5,27 @@ namespace D4T\Admin\Demos\Http\Controllers\Components;
 
 use Faker\Factory;
 use Dcat\Admin\DcatIcon;
-use D4T\Core\Enums\StyleClassType;
 use Dcat\Admin\Layout\Row;
-use Dcat\Admin\Widgets\Tab;
+use Dcat\Admin\Widgets\Code;
 use Dcat\Admin\Layout\Content;
-use Dcat\Admin\TabButtonType;
-use Dcat\Admin\Widgets\IconWithToolTip;
+use Dcat\Admin\Widgets\TabAdv;
 use Dcat\Admin\Widgets\StatItem;
 use Dcat\Admin\Widgets\TabButton;
 use Illuminate\Routing\Controller;
+use Dcat\Admin\Enums\TabButtonType;
 
 class TabsController extends Controller {
 	public function index(Content $content) {
 		return $content->header('Tabs')
 			->row(function (Row $row) {
 				$faker = Factory::create();
-				$tabs1 = new Tab();
+				$tabs1 = new TabAdv();
 				$tabs1->title('Tab');
 				$tabs1->add($faker->text(20), $faker->text(200), '1', TRUE);
 				$tabs1->add($faker->text(20), $faker->text(200), '2');
 				$tabs1->add($faker->text(20), $faker->text(200), '3');
 				$row->column(6, $tabs1);
-				$tabs2 = new Tab();
+				$tabs2 = new TabAdv();
 				$tabs2->title('Fill Tab');
 				$tabs2->fill();
 				$tabs2->add($faker->text(20), $faker->text(200), '1', TRUE, DcatIcon::HOME(), '4');
@@ -36,13 +35,13 @@ class TabsController extends Controller {
 			})
 			->row(function (Row $row) {
 				$faker = Factory::create();
-				$tabs1 = new Tab(TabButtonType::PILL);
+				$tabs1 = new TabAdv(TabButtonType::PILL);
 				$tabs1->title('Pill');
 				$tabs1->add($faker->text(20), $faker->text(200), null, TRUE);
 				$tabs1->add($faker->text(20), $faker->text(200), null, );
 				$tabs1->add($faker->text(20), $faker->text(200), null);
 				$row->column(6, $tabs1);
-				$tabs2 = new Tab(TabButtonType::PILL);
+				$tabs2 = new TabAdv(TabButtonType::PILL);
 				$tabs2->title('Pill Fill');
 				$tabs2->fill();
 				$tabs2->add($faker->text(20), $faker->text(200), null, TRUE, DcatIcon::HOME(), '3');
@@ -52,7 +51,7 @@ class TabsController extends Controller {
 			})
 			->row(function (Row $row) {
 				$faker = Factory::create();
-				$tab = new Tab(TabButtonType::PILL);
+				$tab = new TabAdv(TabButtonType::PILL);
                 $tab->title('Tab as link');
 
                 $activateTab = request('active_tab', 1);
@@ -69,7 +68,7 @@ class TabsController extends Controller {
 			})
 			->row(function (Row $row) {
 				$faker = Factory::create();
-				$tab = new Tab(TabButtonType::PILL, function( TabButton $button) {
+				$tab = new TabAdv(TabButtonType::PILL, function( TabButton $button) {
 //                    return (new IconWithToolTip($button->icon, $button->badge))->class($button->active ? StyleClassType::PRIMARY : StyleClassType::SECONDARY);
                     // $badge = '<span class="badge rounded-pill badge-center h-px-40 w-px-40 bg-label-danger ms-1">'.$button->number.'</span>';
                     return (new StatItem((string)$button->number, $button->title, $button->badge))->render();

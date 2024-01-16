@@ -8,13 +8,14 @@ use Dcat\Admin\Widgets\Tab;
 use Dcat\Admin\Widgets\Card;
 use Dcat\Admin\Widgets\Form;
 use Dcat\Admin\Layout\Content;
+use Dcat\Admin\Widgets\TabAdv;
 use Dcat\Admin\Form\NestedForm;
 use Illuminate\Routing\Controller;
 use Dcat\Admin\Models\Administrator;
 use Symfony\Component\VarDumper\VarDumper;
-use D4T\Admin\Demos\Http\Renderable\UserTableLazyRenderable;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
+use D4T\Admin\Demos\Http\Renderable\UserTableLazyRenderable;
 
 //todo::add tab addLink
 class FormController extends Controller
@@ -32,7 +33,7 @@ class FormController extends Controller
         //$content->row('<div style="margin:5px 0 15px;">'.$this->buildPreviewButton().'</div>');
 
         $content->row(function (Row $row) {
-            $tabs = new Tab();
+            $tabs = new TabAdv();
             $tabs->add('Form-1', $this->form1(), true);
             $tabs->add('Form-2', $this->form2());
             // $type = request('_t', 1);

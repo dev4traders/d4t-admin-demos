@@ -30,6 +30,7 @@ use D4T\Admin\Demos\Http\Controllers\Components\ProgressController;
 use D4T\Admin\Demos\Http\Controllers\Dashboards\AnalyticController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\Top250Controller;
 use D4T\Admin\Demos\Http\Controllers\Components\AccordionController;
+use D4T\Admin\Demos\Http\Controllers\Components\BadgeDotController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\InTheaterController;
 use D4T\Admin\Demos\Http\Controllers\Components\DropdownMenuController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\ComingSoonController;
@@ -54,6 +55,10 @@ Route::get(ServiceProvider::COMPONENTS_ACCORDION, function (Content $content) {
 Route::get(ServiceProvider::COMPONENTS_ALERTS, function (Content $content) {
     return (new AlertController)->index($content);
 })->name(ServiceProvider::COMPONENTS_ALERTS);
+
+Route::get(ServiceProvider::COMPONENTS_BADGE_DOT, function (Content $content) {
+    return (new BadgeDotController)->index($content);
+})->name(ServiceProvider::COMPONENTS_BADGE_DOT);
 
 Route::get(ServiceProvider::COMPONENTS_CHECK_AND_RADIO, function (Content $content) {
     return (new CheckboxAndRadioController)->index($content);
