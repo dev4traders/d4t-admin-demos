@@ -8,10 +8,10 @@ use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Widgets\Card;
 use Dcat\Admin\Widgets\Code;
-use Dcat\Admin\Widgets\Alert;
 use Dcat\Admin\Layout\Content;
-use Illuminate\Routing\Controller;
+use Dcat\Admin\Widgets\AlertAdv;
 use D4T\Core\Enums\StyleClassType;
+use Illuminate\Routing\Controller;
 
 class AlertController extends Controller
 {
@@ -22,16 +22,16 @@ class AlertController extends Controller
 
         $content->row(function (Row $row) use ($faker, $types) {
             $alerts = collect($types)->map(function ($type) use($faker) {
-                $alert = new Alert($faker->text, $type->value);
+                $alert = new AlertAdv($faker->text, $type->value);
 
                 return $alert->class($type)->render();
             })->join(' ');
             $card1 = new Card('basic Alerts', $alerts);
 
             $alerts = collect($types)->map(function ($type) use($faker) {
-                $alert = new Alert($faker->text, $type->value, $type);
+                $alert = new AlertAdv($faker->text, $type->value, $type);
 
-                return $alert->dismissable()->icon(DcatIcon::HOME)->render();
+                return $alert->dismissable()->icon(DcatIcon::HOME())->render();
             })->join(' ');
             $card2 = new Card('Dismissable Alerts with icon', $alerts);
 
