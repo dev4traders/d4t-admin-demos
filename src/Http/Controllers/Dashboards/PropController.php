@@ -6,6 +6,7 @@ use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Traits\PreviewCode;
+use Dcat\Admin\Widgets\ApexCharts\ColumnChart;
 use Illuminate\Routing\Controller;
 use D4T\Admin\Demos\Http\Widgets\AccountDataCard;
 use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
@@ -41,7 +42,7 @@ class PropController extends Controller
                     'right' => -20
                 ]);
 
-                ($widgetProfitTarget = new ProfitTargetChartCard(
+                ($widgetTradingDay = new ProfitTargetChartCard(
                     'Trading day',
                     'Ending in 23d 4h',
                     StyleClassType::SUCCESS,
@@ -50,7 +51,29 @@ class PropController extends Controller
                     $radialBar
                 ))
                     ->icon(DcatIcon::CALENDAR());
-                $row->column(3, $widgetProfitTarget);
+                $row->column(3, $widgetTradingDay);
+
+
+                $columnChart = new ColumnChart();
+                $columnChart->value([0 => ['data' => [21, 22, 10, 28, 16]]]);
+                $columnChart->height(200);
+                $columnChart->padding([
+                    'top' => -40,
+                    'bottom' => -45,
+                    'left' => -20,
+                    'right' => -20
+                ]);
+
+                ($widgetTradingDrawdown = new ProfitTargetChartCard(
+                    'Trading Drawdown',
+                    'Passing',
+                    StyleClassType::SUCCESS,
+                    '$2930',
+                    'Max -$1000',
+                    $columnChart
+                ))
+                    ->icon(DcatIcon::CALENDAR());
+                $row->column(3, $widgetTradingDrawdown);
             })
             ->body($this->newline())
             ->body(function (Row $row) {
