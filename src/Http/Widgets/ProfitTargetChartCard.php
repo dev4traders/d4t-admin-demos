@@ -2,32 +2,26 @@
 
 namespace D4T\Admin\Demos\Http\Widgets;
 
-use Dcat\Admin\DcatIcon;
-use Dcat\Admin\Widgets\SimpleCard;
-use Dcat\Admin\Widgets\IconWithToolTip;
-use Dcat\Admin\Widgets\ApexCharts\RadialBarChart;
+use D4T\Core\Enums\StyleClassType;
+use Dcat\Admin\Widgets\BadgeDot;
+use Dcat\Admin\Widgets\Cards\MetricsCard;
 
-class ProfitTargetChartCard extends SimpleCard
+class ProfitTargetChartCard extends MetricsCard
 {
-
-    public function __construct(float $valueCurrent, float $valueTarget)
+    public function __construct(
+        string $title,
+        string $badgeText,
+        StyleClassType $badgeClass,
+        string $valueText,
+        string $description,
+        $content
+    )
     {
-        $value = $valueCurrent/$valueTarget*100;
-
-        $radialBar = new RadialBarChart();
-        $radialBar->value($value);
-        $radialBar->hollowSize(30);
-        $radialBar->height(200);
-        $radialBar->padding([
-            'top' => -40,
-            'bottom' => -45,
-            'left' => -20,
-            'right' => -20
-        ]);
-
-        parent::__construct('Profit Target', $radialBar);
-
-        $this->tool(new IconWithToolTip(DcatIcon::HELP(), 'Profit Target'));
-        $this->footer('<span class="font-weight-bold">$'.$valueCurrent.'</span>/<span class="text-muted">$'.$valueTarget.'</span>');
+        parent::__construct($title, $content);
+        $this->tool(
+            (new BadgeDot($badgeClass, $badgeText))->render()
+        );
+        $this->value = $valueText;
+        $this->description = $description;
     }
 }

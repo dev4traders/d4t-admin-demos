@@ -19,9 +19,9 @@ use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
 use D4T\Admin\Demos\Http\Widgets\TradingObjectiveCard;
 use D4T\Admin\Demos\Http\Widgets\ProfitTargetChartCard;
 use D4T\Core\Enums\StyleClassType;
-use Dcat\Admin\Layout\ColoredBadge;
 use Dcat\Admin\Widgets\BadgeDot;
 use Dcat\Admin\Widgets\SimpleCard;
+use Dcat\Admin\Widgets\ApexCharts\RadialBarChart;
 
 class PropController extends Controller
 {
@@ -59,7 +59,27 @@ class PropController extends Controller
             })
             ->body(function (Row $row) {
 
-                $widgetProfitTarget = new ProfitTargetChartCard(3000, 5000);
+                $radialBar = new RadialBarChart();
+                $radialBar->value((3000/5000)*100);
+                $radialBar->hollowSize(30);
+                $radialBar->height(200);
+                $radialBar->padding([
+                    'top' => -40,
+                    'bottom' => -45,
+                    'left' => -20,
+                    'right' => -20
+                ]);
+
+                ($widgetProfitTarget = new ProfitTargetChartCard(
+                    'Trading day',
+                    'Ending in 23d 4h',
+                    StyleClassType::SUCCESS,
+                    '3 days',
+                    'Target 10 days',
+                    $radialBar
+                ))
+                    ->icon(DcatIcon::CALENDAR());
+
                 $row->column(3, $widgetProfitTarget);
             })
             ->body($this->newline())
