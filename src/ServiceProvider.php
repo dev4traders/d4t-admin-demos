@@ -19,6 +19,7 @@ class ServiceProvider extends ServiceProviderBase
     const COMPONENTS = 'components';
     const COMPONENTS_ACCORDION = 'components.accordion';
     const COMPONENTS_ALERTS = 'components.alerts';
+    const COMPONENTS_BADGE_DOT = 'components.badge_dot';
     const COMPONENTS_CHECK_AND_RADIO = 'components.check_and_radio';
     const COMPONENTS_DROPDOWN = 'components.dropdown';
     const COMPONENTS_PROGRESS = 'components.progress';
@@ -67,6 +68,7 @@ class ServiceProvider extends ServiceProviderBase
     const PERMISSION_COMPONENTS = 'components';
     const PERMISSION_COMPONENTS_ACCORDION = 'components.accordion';
     const PERMISSION_COMPONENTS_ALERTS = 'components.alerts';
+    const PERMISSION_COMPONENTS_BADGE_DOT  = 'components.badge_dot';
     const PERMISSION_COMPONENTS_CHECK_AND_RADIO = 'components.check_and_radio';
     const PERMISSION_COMPONENTS_DROPDOWN = 'components.dropdown';
     const PERMISSION_COMPONENTS_PROGRESS = 'components.progress';
@@ -160,6 +162,13 @@ class ServiceProvider extends ServiceProviderBase
             'uri'       => self::COMPONENTS_ALERTS,
             'parent' => 'Components',
             'permission_slug' => self::PERMISSION_COMPONENTS_ALERTS
+        ],
+        [
+            'title'     => 'BadgeDot',
+            'icon' => 'fa-bars',
+            'uri'       => self::COMPONENTS_BADGE_DOT,
+            'parent' => 'Components',
+            'permission_slug' => self::PERMISSION_COMPONENTS_BADGE_DOT
         ],
         [
             'title'     => 'Check_and_radio',
@@ -466,6 +475,12 @@ class ServiceProvider extends ServiceProviderBase
             'slug' => self::PERMISSION_COMPONENTS_ALERTS,
             'name' => 'Manager Demos Alerts',
             'path' => self::COMPONENTS_ALERTS,
+        ],
+        [
+            'parent' => self::PERMISSION_DEMOS,
+            'slug' => self::PERMISSION_COMPONENTS_BADGE_DOT,
+            'name' => 'Manager Demos badge Dot',
+            'path' => self::COMPONENTS_BADGE_DOT,
         ],
         [
             'parent' => self::PERMISSION_DEMOS,
