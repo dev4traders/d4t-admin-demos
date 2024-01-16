@@ -8,8 +8,8 @@ use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Widgets\Card;
 use Dcat\Admin\Widgets\Code;
 use Dcat\Admin\Layout\Content;
-use D4T\Core\Enums\StyleClassType;
 use Dcat\Admin\Widgets\BadgeDot;
+use D4T\Core\Enums\StyleClassType;
 use Illuminate\Routing\Controller;
 
 class BadgeDotController extends Controller
