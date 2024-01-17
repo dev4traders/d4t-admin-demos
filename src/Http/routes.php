@@ -36,6 +36,7 @@ use D4T\Admin\Demos\Http\Controllers\Components\DropdownMenuController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\ComingSoonController;
 use D4T\Admin\Demos\Http\Controllers\Components\TipAndPopoverController;
 use D4T\Admin\Demos\Http\Controllers\Components\CheckboxAndRadioController;
+use D4T\Admin\Demos\Http\Controllers\Dashboards\PropSimplifiedController;
 
 //Route::get(ServiceProvider::URL_HELPERS_SCAFFOLD, ScaffoldController::class.'@index');
 
@@ -47,6 +48,11 @@ Route::get(ServiceProvider::DASHBOARD_PROP, function (Content $content) {
     return (new PropController)->index($content);
 })->name(ServiceProvider::DASHBOARD_PROP);
 Route::get(ServiceProvider::DASHBOARD_PROP.'/preview', 'Dashboards\PropController@preview');
+
+Route::get(ServiceProvider::DASHBOARD_PROP_SIMPLIFIED, function (Content $content) {
+    return (new PropSimplifiedController)->index($content);
+})->name(ServiceProvider::DASHBOARD_PROP_SIMPLIFIED);
+Route::get(ServiceProvider::DASHBOARD_PROP_SIMPLIFIED.'/preview', 'Dashboards\PropSimplifiedController@preview');
 
 Route::get(ServiceProvider::COMPONENTS_ACCORDION, function (Content $content) {
     return (new AccordionController)->index($content);
