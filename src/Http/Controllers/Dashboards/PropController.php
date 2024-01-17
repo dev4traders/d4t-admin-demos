@@ -6,6 +6,7 @@ use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Widgets\DropdownItem;
 use Dcat\Admin\Widgets\DropdownWithIcon;
+use Dcat\Admin\Widgets\IconWithToolTip;
 use Dcat\Admin\Widgets\Steps;
 use Dcat\Admin\Layout\Content;
 use D4T\Core\Enums\StyleClassType;
@@ -43,6 +44,7 @@ class PropController extends Controller
                     ]))
                         ->title('$50.000 Challenge')
                         ->description('Some description')
+                        ->icon(DcatIcon::SETTINGS)
                 );
 
                 $features->addFeature(
