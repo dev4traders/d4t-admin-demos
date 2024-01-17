@@ -40,8 +40,8 @@ class PropController extends Controller
 
                 $features->addFeature(new BadgeWithIcon(DcatIcon::HELP(true), StyleClassType::PRIMARY, 'Type' ) );
 
-                $features->addFooterElement(new IconicLink(DcatIcon::EMAIL(true), 'Contact Support', config('admin.contact-us-link', '')));
-                $features->addFooterElement(new IconicLink(DcatIcon::SHARE_ALT(true), 'Share Statistics', config('admin.contact-us-link', '')));
+                // $features->addFooterElement(new IconicLink(DcatIcon::EMAIL(true), 'Contact Support', config('admin.contact-us-link', '')));
+                // $features->addFooterElement(new IconicLink(DcatIcon::SHARE_ALT(true), 'Share Statistics', config('admin.contact-us-link', '')));
 
                 $row->column(12, new SimpleCard(null, $features));
             })
