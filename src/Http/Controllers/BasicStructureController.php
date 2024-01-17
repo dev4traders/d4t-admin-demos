@@ -6,7 +6,7 @@ use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Admin;
-use Dcat\Admin\Models\Tag;
+use D4T\Core\Models\Tag;
 use Dcat\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 use Dcat\Admin\Http\Controllers\HasResourceActions;
@@ -80,7 +80,7 @@ class BasicStructureController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(Tag::ownDomainOnly());
+        $grid = new Grid(Tag::forDomain(Admin::domain()->id));
 
         $grid->column('id')->sortable();
         $grid->column('title')->sortable();
@@ -100,7 +100,7 @@ class BasicStructureController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Tag::ownDomainOnly()->findOrFail($id));
+        $show = new Show(Tag::forDomain(Admin::domain()->id)->findOrFail($id));
 
         $show->field('id');
         $show->field('title');
