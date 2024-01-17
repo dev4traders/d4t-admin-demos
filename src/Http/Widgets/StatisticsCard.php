@@ -16,7 +16,7 @@ class StatisticsCard extends SimpleCard
     {
 
         $context = new Row();
-        $context->column(6, function (Column $column) {
+        $context->column(['lg' => 6], function (Column $column) {
             $widgets = collect();
 
             $widgets->push( new StatItem(DcatIcon::HOME(true), 'Start', '10 days ago'));
@@ -28,7 +28,7 @@ class StatisticsCard extends SimpleCard
             $column->append($widgets->map(fn(StatItem $widget)  => $widget->inverse()->render() )->join(''));
         });
 
-        $context->column(6, function (Column $column) {
+        $context->column(['lg' => 6], function (Column $column) {
             $widgets = collect();
 
             $widgets->push( new StatItem(DcatIcon::HOME(true), 'Start', '10 days ago'));
