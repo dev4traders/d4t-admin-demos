@@ -12,6 +12,7 @@ use Illuminate\Routing\Controller;
 use D4T\Admin\Demos\Http\Widgets\AccountDataCard;
 use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
 use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
+use D4T\Admin\Demos\Http\Widgets\StatisticsCard;
 use D4T\Admin\Demos\Http\Widgets\TradingObjectiveCard;
 use D4T\Admin\Demos\Http\Widgets\TradingDayMetricsCard;
 
@@ -38,11 +39,17 @@ class PropController extends Controller
             ->body($this->newline())
             ->body(function (Row $row) {
 
-                $to = new TradingObjectiveCard();
-                $row->column(9, $to);
+                $statictics = new StatisticsCard();
+                $row->column(6, $statictics);
 
                 $accountData = new AccountDataCard();
-                $row->column(3, $accountData);
+                $row->column(6, $accountData);
+            })
+            ->body($this->newline())
+            ->body(function (Row $row) {
+
+                $to = new TradingObjectiveCard();
+                $row->column(12, $to);
             })
             ->body($this->newline())
             ->body(function (Row $row) {
