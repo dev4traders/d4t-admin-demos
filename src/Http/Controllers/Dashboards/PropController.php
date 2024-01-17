@@ -37,15 +37,8 @@ class PropController extends Controller
 
                 $features = new FeaturedCard('Intermediate Instigator');
                 $features->icon('LIVE');
-                //                $features->class('danger');
 
-                //todo::fix BadgeWithIcon
-                // $features->addFeature(new BadgeWithIcon('Type', 'Two Step - Phase 1', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_plan_type'))));
-                // $features->addFeature(new BadgeWithIcon('Platform', 'MT4', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_platform'))));
-                // $features->addFeature(new BadgeWithIcon('Starting Balance', '$10000', new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_starting_balance'))));
-                // $features->addFeature(new BadgeWithIcon('Status', 'Active', (new BadgeDot(StyleClassType::SUCCESS))->render()));
-
-                //$features->addFeature(new BadgeWithIcon(DcatIcon::HOME(true), StyleClassType::PRIMARY, new IconWithToolTip(DcatIcon::HELP(), __('userdash.help_plan_type'))));
+                $features->addFeature(new BadgeWithIcon(DcatIcon::HELP(true), StyleClassType::PRIMARY, 'Type' ) );
 
                 $features->addFooterElement(new IconicLink(DcatIcon::EMAIL(true), 'Contact Support', config('admin.contact-us-link', '')));
                 $features->addFooterElement(new IconicLink(DcatIcon::SHARE_ALT(true), 'Share Statistics', config('admin.contact-us-link', '')));
