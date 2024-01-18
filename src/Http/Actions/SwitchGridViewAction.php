@@ -1,6 +1,6 @@
 <?php
 
-namespace D4T\Admin\Demos\Http\Actions\Grid;
+namespace D4T\Admin\Demos\Http\Actions;
 
 use Dcat\Admin\Actions\Action;
 

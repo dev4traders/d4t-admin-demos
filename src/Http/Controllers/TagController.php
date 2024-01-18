@@ -5,10 +5,10 @@ namespace D4T\Admin\Demos\Http\Controllers;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
-use Dcat\Admin\Models\Tag;
+use D4T\Core\Models\Tag;
 use Dcat\Admin\Http\Controllers\AdminController;
 
-class ArticleController extends AdminController
+class TagController extends AdminController
 {
     /**
      * Make a grid builder.
