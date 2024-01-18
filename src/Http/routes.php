@@ -1,5 +1,6 @@
 <?php
 
+use D4T\Admin\Demos\Http\Controllers\Dashboards\WidgetController;
 use Dcat\Admin\Layout\Content;
 use D4T\Admin\Demos\ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,11 @@ Route::get(ServiceProvider::DASHBOARD_PROP, function (Content $content) {
     return (new PropController)->index($content);
 })->name(ServiceProvider::DASHBOARD_PROP);
 Route::get(ServiceProvider::DASHBOARD_PROP.'/preview', 'Dashboards\PropController@preview');
+
+Route::get(ServiceProvider::DASHBOARD_WIDGETS, function (Content $content) {
+    return (new WidgetController())->index($content);
+})->name(ServiceProvider::DASHBOARD_WIDGETS);
+Route::get(ServiceProvider::DASHBOARD_WIDGETS.'/preview', 'Dashboards\WidgetController@preview');
 
 Route::get(ServiceProvider::DASHBOARD_PROP_SIMPLIFIED, function (Content $content) {
     return (new PropSimplifiedController)->index($content);
