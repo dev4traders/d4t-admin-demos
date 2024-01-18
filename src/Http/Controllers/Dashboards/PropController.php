@@ -2,6 +2,8 @@
 
 namespace D4T\Admin\Demos\Http\Controllers\Dashboards;
 
+use D4T\Admin\Demos\Http\Widgets\DailySummaryCard;
+use D4T\Admin\Demos\Http\Widgets\TradingInstrumentsCard;
 use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Widgets\DropdownItem;
@@ -81,15 +83,18 @@ class PropController extends Controller
 
                 $row->column(12, $features);
             })
+            ->body($this->newline())
             ->body(function (Row $row) {
 
                 $widget = new Steps();
 
-                $widget->add('your are here', 'Step1 - Challenge Account', true);
+                $widget->add('You are here', 'Step1 - Challenge Account', true);
                 $widget->add('Next Phase', 'Step2 - Funded Account');
+                $widget->add('Funded', 'Last stage');
 
                 $row->column(12, $widget);
             })
+            ->body($this->newline())
             ->body(function (Row $row) {
                 $row->column(3, new TradingDayMetricsCard());
                 $row->column(3, new TradingDrawdownMetricsCard());
@@ -105,11 +110,16 @@ class PropController extends Controller
             ->body($this->newline())
             ->body(function (Row $row) {
 
-                $statictics = new StatisticsCard();
-                $row->column(6, $statictics);
+                $statistics = new StatisticsCard();
+                $row->column(6, $statistics);
 
                 $accountData = new AccountDataCard();
                 $row->column(6, $accountData);
+            })
+            ->body($this->newline())
+            ->body(function (Row $row) {
+                $row->column(6, new TradingInstrumentsCard());
+                $row->column(6, new DailySummaryCard());
             })
             ->body($this->newline())
             ->body(function (Row $row) {
