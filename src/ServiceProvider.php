@@ -15,6 +15,8 @@ class ServiceProvider extends ServiceProviderBase
     const DASHBOARDS = 'dashboards';
     const DASHBOARD_ANALYTIC = 'dashbords/analytic';
     const DASHBOARD_PROP = 'dashbords/prop';
+
+    const DASHBOARD_WIDGETS = 'dashbords/widgets';
     const DASHBOARD_PROP_SIMPLIFIED = 'dashbords/prop-simplified';
 
     const COMPONENTS = 'components';
