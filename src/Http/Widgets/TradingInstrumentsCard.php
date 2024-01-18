@@ -23,7 +23,7 @@ class TradingInstrumentsCard extends SimpleCard
         ]);
 
         parent::__construct('Trading instruments', $pieChart);
-
+        $this->fullHeight();
         $this->tool(new IconWithToolTip(DcatIcon::HELP(), 'Trading instruments'));
     }
 }

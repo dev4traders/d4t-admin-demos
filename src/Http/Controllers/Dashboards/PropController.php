@@ -8,7 +8,6 @@ use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Widgets\DropdownItem;
 use Dcat\Admin\Widgets\DropdownWithIcon;
-use Dcat\Admin\Widgets\IconWithToolTip;
 use Dcat\Admin\Widgets\Steps;
 use Dcat\Admin\Layout\Content;
 use D4T\Core\Enums\StyleClassType;
@@ -50,32 +49,32 @@ class PropController extends Controller
                 );
 
                 $features->addFeature(
-                    new BadgeWithIcon(
+                    (new BadgeWithIcon(
                         DcatIcon::HELP(),
                         StyleClassType::PRIMARY,
                         'Multiple Asset Classes'
-                    )
+                    ))->fullWidth()
                 );
                 $features->addFeature(
-                    new BadgeWithIcon(
+                    (new BadgeWithIcon(
                         DcatIcon::HELP(),
                         StyleClassType::PRIMARY,
                         'No limits on trading style!'
-                    )
+                    ))->fullWidth()
                 );
                 $features->addFeature(
-                    new BadgeWithIcon(
+                    (new BadgeWithIcon(
                         DcatIcon::HELP(),
                         StyleClassType::PRIMARY,
                         'The best trading conditions'
-                    )
+                    ))->fullWidth()
                 );
                 $features->addFeature(
-                    new BadgeWithIcon(
+                    (new BadgeWithIcon(
                         DcatIcon::HELP(),
                         StyleClassType::PRIMARY,
                         'Receive up to 90% of the profit'
-                    )
+                    ))->fullWidth()
                 );
 
                 $features->addFooterLink(new IconicLink(DcatIcon::EMAIL(true), 'Contact Support', config('admin.contact-us-link', '')));
@@ -83,45 +82,36 @@ class PropController extends Controller
 
                 $row->column(12, $features);
             })
-            ->body($this->newline())
             ->body(function (Row $row) {
-
                 $widget = new Steps();
-
+                $widget->classExt('d-none d-md-flex');
                 $widget->add('You are here', 'Step1 - Challenge Account', true);
                 $widget->add('Next Phase', 'Step2 - Funded Account');
                 $widget->add('Funded', 'Last stage');
 
-                $row->column(12, $widget);
+                $row->column(['sm' => 12], $widget);
             })
-            ->body($this->newline())
             ->body(function (Row $row) {
-                $row->column(3, new TradingDayMetricsCard());
-                $row->column(3, new TradingDrawdownMetricsCard());
-                $row->column(3, new DailyLossMetricsCard());
-                $row->column(3, new ProfitMetricsCard());
-            })
-            ->body($this->newline())
-            ->body(function (Row $row) {
+                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new TradingDayMetricsCard());
+                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new TradingDrawdownMetricsCard());
+                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new DailyLossMetricsCard());
+                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new ProfitMetricsCard());
 
                 $widgetBalance = new BalanceChartWidget();
-                $row->column(12, $widgetBalance);
+                $row->column(['xxl' => 12, 'lg' => 8], $widgetBalance);
             })
-            ->body($this->newline())
             ->body(function (Row $row) {
 
                 $statistics = new StatisticsCard();
-                $row->column(6, $statistics);
+                $row->column(['xxl' => 6, 'lg' => 7], $statistics);
 
                 $accountData = new AccountDataCard();
-                $row->column(6, $accountData);
+                $row->column(['xxl' => 6, 'lg' => 5], $accountData);
             })
-            ->body($this->newline())
             ->body(function (Row $row) {
                 $row->column(6, new TradingInstrumentsCard());
                 $row->column(6, new DailySummaryCard());
             })
-            ->body($this->newline())
             ->body(function (Row $row) {
 
                 $history = new TradeHistoryCard();

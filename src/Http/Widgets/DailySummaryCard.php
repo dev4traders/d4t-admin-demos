@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace D4T\Admin\Demos\Http\Widgets;
 
 use Dcat\Admin\DcatIcon;
@@ -9,7 +9,6 @@ use Dcat\Admin\Widgets\IconWithToolTip;
 
 class DailySummaryCard extends SimpleCard
 {
-
     public function __construct()
     {
 
@@ -25,7 +24,7 @@ class DailySummaryCard extends SimpleCard
         $history = new TableAdv($headers, $rows);
 
         parent::__construct('Daily summary', $history->render());
-
+        $this->fullHeight();
         $this->tool(new IconWithToolTip(DcatIcon::HELP(), 'Daily summary'));
     }
 }
