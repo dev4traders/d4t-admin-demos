@@ -2,27 +2,28 @@
 
 namespace D4T\Admin\Demos\Http\Controllers\Dashboards;
 
-use D4T\Admin\Demos\Http\Widgets\DailySummaryCard;
-use D4T\Admin\Demos\Http\Widgets\TradingInstrumentsCard;
 use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
-use Dcat\Admin\Widgets\DropdownItem;
-use Dcat\Admin\Widgets\DropdownWithIcon;
 use Dcat\Admin\Widgets\Steps;
 use Dcat\Admin\Layout\Content;
+use Dcat\Admin\Widgets\ImageAdv;
 use D4T\Core\Enums\StyleClassType;
 use Dcat\Admin\Traits\PreviewCode;
 use Dcat\Admin\Widgets\IconicLink;
 use Illuminate\Routing\Controller;
+use Dcat\Admin\Widgets\DropdownItem;
 use Dcat\Admin\Widgets\FeaturedCard;
 use Dcat\Admin\Widgets\BadgeWithIcon;
+use Dcat\Admin\Widgets\DropdownWithIcon;
 use D4T\Admin\Demos\Http\Widgets\StatisticsCard;
 use D4T\Admin\Demos\Http\Widgets\AccountDataCard;
+use D4T\Admin\Demos\Http\Widgets\DailySummaryCard;
 use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
 use D4T\Admin\Demos\Http\Widgets\ProfitMetricsCard;
 use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
 use D4T\Admin\Demos\Http\Widgets\DailyLossMetricsCard;
 use D4T\Admin\Demos\Http\Widgets\TradingDayMetricsCard;
+use D4T\Admin\Demos\Http\Widgets\TradingInstrumentsCard;
 use D4T\Admin\Demos\Http\Widgets\TradingDrawdownMetricsCard;
 
 class PropController extends Controller
@@ -36,7 +37,7 @@ class PropController extends Controller
             ->description('Account Statistics...')
             ->body(function (Row $row) {
                 $features = new FeaturedCard('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es');
-                $features->icon('IMG NOT LOADED');
+                $features->image(new ImageAdv('/vendor/dcat-admin/images/default-avatar.png', '/vendor/dcat-admin/images/default-avatar.png', ''));
                 $features->headerContent(
                     (new DropdownWithIcon([
                         new DropdownItem('Menu item 1'),
