@@ -78,8 +78,20 @@ class PropController extends Controller
                     ))->fullWidth()
                 );
 
-                $features->addFooterLink(new IconicLink(DcatIcon::EMAIL(true), 'Contact Support', config('admin.contact-us-link', '')));
-                $features->addFooterLink(new IconicLink(DcatIcon::SHARE_ALT(true), 'Share Statistics', config('admin.contact-us-link', '')));
+                $features->addFooterLink(
+                    (new IconicLink(
+                        DcatIcon::EMAIL(true),
+                        'Contact Support',
+                        config('admin.contact-us-link', '')
+                    ))->asButton()
+                );
+                $features->addFooterLink(
+                    (new IconicLink(
+                        DcatIcon::SHARE_ALT(true),
+                        'Share Statistics',
+                        config('admin.contact-us-link', '')
+                    ))->asButton()
+                );
 
                 $row->column(12, $features);
             })
@@ -93,13 +105,14 @@ class PropController extends Controller
                 $row->column(['sm' => 12], $widget);
             })
             ->body(function (Row $row) {
-                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new TradingDayMetricsCard());
-                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new TradingDrawdownMetricsCard());
-                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new DailyLossMetricsCard());
-                $row->column(['xxl' => 3, 'lg' => 4, 'md' => 6], new ProfitMetricsCard());
-
+                $row->column(['xxl' => 3, 'md' => 6], new TradingDayMetricsCard());
+                $row->column(['xxl' => 3, 'md' => 6], new TradingDrawdownMetricsCard());
+                $row->column(['xxl' => 3, 'md' => 6], new DailyLossMetricsCard());
+                $row->column(['xxl' => 3, 'md' => 6], new ProfitMetricsCard());
+            })
+            ->body(function (Row $row) {
                 $widgetBalance = new BalanceChartWidget();
-                $row->column(['xxl' => 12, 'lg' => 8], $widgetBalance);
+                $row->column(12, $widgetBalance);
             })
             ->body(function (Row $row) {
 
