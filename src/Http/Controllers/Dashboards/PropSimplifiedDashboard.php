@@ -12,6 +12,7 @@ use Dcat\Admin\Widgets\ApexCharts\RadialBarChart;
 use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
 use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
 use D4T\Admin\Demos\Http\Widgets\TradingObjectiveCard;
+use D4T\Admin\Demos\Http\Widgets\SimplifiedAccountDataCard;
 
 class PropSimplifiedDashboard
 {
@@ -41,7 +42,7 @@ class PropSimplifiedDashboard
                 $to = new TradingObjectiveCard();
                 $row->column(9, $to);
 
-                $accountData = new AccountDataCard();
+                $accountData = new SimplifiedAccountDataCard();
                 $row->column(3, $accountData);
             })
             ->body(function (Row $row) {
