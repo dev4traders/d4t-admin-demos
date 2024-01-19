@@ -60,7 +60,7 @@ class ServiceProvider extends ServiceProviderBase
     const FORMS_FORM = 'forms.form';
 
     const BASIC = 'basic';
-    const CLIENTS = 'clients';
+    const CLIENTS = 'demo.clients';
     const LAYOUT = 'layout';
 
     const PERMISSION_DEMOS = 'mng.demos';
