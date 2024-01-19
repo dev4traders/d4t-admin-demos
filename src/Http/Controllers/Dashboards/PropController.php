@@ -43,10 +43,10 @@ class PropController extends Controller
                         new DropdownItem('Menu item 1'),
                         new DropdownItem('Menu item 2'),
                         new DropdownItem('Menu item 3'),
-                    ]))
-                        ->title('$50.000 Challenge')
-                        ->description('Some description')
-                        ->icon(DcatIcon::SETTINGS)
+                    ], null, StyleClassType::DARK))
+                        ->title('$50.000 Challenge', StyleClassType::INFO)
+                        ->description('Some description', StyleClassType::INFO)
+                        ->icon(DcatIcon::SETTINGS, StyleClassType::INFO)
                 );
 
                 $features->addFeature(
