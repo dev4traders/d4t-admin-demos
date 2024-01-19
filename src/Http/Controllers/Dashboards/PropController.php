@@ -105,10 +105,10 @@ class PropController extends Controller
                 $row->column(['sm' => 12], $widget);
             })
             ->body(function (Row $row) {
-                $row->column(['xxl' => 3, 'md' => 6], new TradingDayMetricsCard());
-                $row->column(['xxl' => 3, 'md' => 6], new TradingDrawdownMetricsCard());
-                $row->column(['xxl' => 3, 'md' => 6], new DailyLossMetricsCard());
-                $row->column(['xxl' => 3, 'md' => 6], new ProfitMetricsCard());
+                $row->column(['xl' => 3, 'md' => 6], new TradingDayMetricsCard());
+                $row->column(['xl' => 3, 'md' => 6], new TradingDrawdownMetricsCard());
+                $row->column(['xl' => 3, 'md' => 6], new DailyLossMetricsCard());
+                $row->column(['xl' => 3, 'md' => 6], new ProfitMetricsCard());
             })
             ->body(function (Row $row) {
                 $widgetBalance = new BalanceChartWidget();
