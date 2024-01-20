@@ -7,16 +7,18 @@ use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Widgets\SimpleCard;
 use Dcat\Admin\Widgets\IconWithToolTip;
+use D4T\Admin\Demos\Http\Widgets\StatisticsCard;
 use D4T\Admin\Demos\Http\Widgets\AccountDataCard;
 use Dcat\Admin\Widgets\ApexCharts\RadialBarChart;
 use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
 use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
 use D4T\Admin\Demos\Http\Widgets\TradingObjectiveCard;
+use D4T\Admin\Demos\Http\Widgets\TradingInstrumentsCard;
 use D4T\Admin\Demos\Http\Widgets\SimplifiedAccountDataCard;
 
 class PropSimplifiedDashboard
 {
-    public static function make(Content $content) : Content
+    public static function make(Content $content): Content
     {
         return $content
             ->header('PropSimplified Dashboard')
@@ -40,10 +42,16 @@ class PropSimplifiedDashboard
             ->body(function (Row $row) {
 
                 $to = new TradingObjectiveCard();
-                $row->column(9, $to);
+                $row->column(8, $to);
 
                 $accountData = new SimplifiedAccountDataCard();
-                $row->column(3, $accountData);
+                $row->column(4, $accountData);
+            })
+            ->body(function (Row $row) {
+                $row->column(6, new TradingInstrumentsCard());
+                
+                $stat = new StatisticsCard();
+                $row->column(6, $stat);
             })
             ->body(function (Row $row) {
 

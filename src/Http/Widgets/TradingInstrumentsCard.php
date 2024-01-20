@@ -14,7 +14,9 @@ class TradingInstrumentsCard extends SimpleCard
         $pieChart = new PieChart();
         $pieChart->value([30, 60]);
         $pieChart->height(240);
+
         $pieChart->labels(['EURUSD', 'BTCUSD']);
+        
         $pieChart->padding([
             'top' => -10,
             'bottom' => -10,
