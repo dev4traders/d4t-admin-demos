@@ -49,7 +49,7 @@ class PropSimplifiedDashboard
             })
             ->body(function (Row $row) {
                 $row->column(6, new TradingInstrumentsCard());
-                
+
                 $stat = new StatisticsCard();
                 $row->column(6, $stat);
             })
