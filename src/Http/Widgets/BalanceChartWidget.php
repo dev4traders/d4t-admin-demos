@@ -17,7 +17,7 @@ class BalanceChartWidget extends Chart
 
         $this->chart([
             'type'     => 'area',
-            'height' => '300 px',
+            'height' => '300',
             'toolbar' => [
                 'show' => false
             ]
