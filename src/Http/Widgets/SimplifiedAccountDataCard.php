@@ -23,9 +23,9 @@ class SimplifiedAccountDataCard extends SimpleCard
         $widgets->push(new StatItem(DcatIcon::HOME(true), 'Platform', 'Trading platform', 'Metatrader4'));
         $widgets->push(new StatItem(DcatIcon::HOME(true), 'Broker', 'Trading Broker', 'Eightcap-Demo'));
 
-        parent::__construct('Account Data', $widgets->map(fn (Renderable $widget) => $widget->render())->join(''));
-
         $this->fullHeight();
         $this->tool(new IconWithToolTip(DcatIcon::HELP(), 'Account Data'));
+
+        parent::__construct('Account Data', $widgets->map(fn (Renderable $widget) => $widget->render())->join(''));
     }
 }
