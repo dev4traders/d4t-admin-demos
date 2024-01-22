@@ -53,7 +53,10 @@ class ProfitMetricsCard extends MetricsCard
 
         parent::__construct($title, $radialBar);
         $this->tool(new BadgeDot($badgeClass, $badgeText));
-        $this->icon(new BadgeWithIcon(DcatIcon::DOLLAR_SIGN(), StyleClassType::SECONDARY));
+        $this->icon(
+            (new BadgeWithIcon(DcatIcon::DOLLAR_SIGN()))
+                ->bgClass(StyleClassType::SECONDARY)
+        );
         $this->value = $valueText;
         $this->target = $targetText;
     }

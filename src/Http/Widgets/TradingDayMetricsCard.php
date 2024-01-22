@@ -32,7 +32,10 @@ class TradingDayMetricsCard extends MetricsCard
 
         parent::__construct($title, $radialBar);
         $this->tool(new BadgeDot($badgeClass, $badgeText));
-        $this->icon(new BadgeWithIcon(DcatIcon::CALENDAR(), StyleClassType::SECONDARY));
+        $this->icon(
+            (new BadgeWithIcon(DcatIcon::CALENDAR()))
+                ->bgClass(StyleClassType::SECONDARY)
+        );
         $this->value = $valueText;
         $this->target = $targetText;
     }

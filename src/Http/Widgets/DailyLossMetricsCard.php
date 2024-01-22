@@ -33,7 +33,10 @@ class DailyLossMetricsCard extends MetricsCard
 
         parent::__construct($title, $bar);
         $this->tool(new BadgeDot($badgeClass, $badgeText));
-        $this->icon(new BadgeWithIcon(DcatIcon::ARROW_TREND_UP(), StyleClassType::SECONDARY));
+        $this->icon(
+            (new BadgeWithIcon(DcatIcon::ARROW_TREND_UP()))
+                ->bgClass(StyleClassType::SECONDARY)
+        );
         $this->value = $valueText;
         $this->target = $targetText;
     }

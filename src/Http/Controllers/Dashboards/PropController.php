@@ -52,30 +52,38 @@ class PropController extends Controller
                 $features->addFeature(
                     (new BadgeWithIcon(
                         DcatIcon::HELP(),
-                        StyleClassType::PRIMARY,
                         'Multiple Asset Classes'
-                    ))->fullWidth()
+                    ))
+                        ->bgClass(StyleClassType::SECONDARY)
+                        ->textClass(StyleClassType::PRIMARY)
+                        ->fullWidth()
                 );
                 $features->addFeature(
                     (new BadgeWithIcon(
                         DcatIcon::HELP(),
-                        StyleClassType::PRIMARY,
                         'No limits on trading style!'
-                    ))->fullWidth()
+                    ))
+                        ->bgClass(StyleClassType::SECONDARY)
+                        ->textClass(StyleClassType::PRIMARY)
+                        ->fullWidth()
                 );
                 $features->addFeature(
                     (new BadgeWithIcon(
                         DcatIcon::HELP(),
-                        StyleClassType::PRIMARY,
                         'The best trading conditions'
-                    ))->fullWidth()
+                    ))
+                        ->bgClass(StyleClassType::SECONDARY)
+                        ->textClass(StyleClassType::PRIMARY)
+                        ->fullWidth()
                 );
                 $features->addFeature(
                     (new BadgeWithIcon(
                         DcatIcon::HELP(),
-                        StyleClassType::PRIMARY,
                         'Receive up to 90% of the profit'
-                    ))->fullWidth()
+                    ))
+                        ->bgClass(StyleClassType::SECONDARY)
+                        ->textClass(StyleClassType::PRIMARY)
+                        ->fullWidth()
                 );
 
                 $features->addFooterLink(

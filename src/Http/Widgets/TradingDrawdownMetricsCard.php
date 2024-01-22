@@ -31,7 +31,10 @@ class TradingDrawdownMetricsCard extends MetricsCard
 
         parent::__construct($title, $columnChart);
         $this->tool(new BadgeDot($badgeClass, $badgeText));
-        $this->icon(new BadgeWithIcon(DcatIcon::CHART_COLUMN(), StyleClassType::SECONDARY));
+        $this->icon(
+            (new BadgeWithIcon(DcatIcon::CHART_COLUMN()))
+                ->bgClass(StyleClassType::SECONDARY)
+        );
         $this->value = $valueText;
         $this->target = $targetText;
     }
