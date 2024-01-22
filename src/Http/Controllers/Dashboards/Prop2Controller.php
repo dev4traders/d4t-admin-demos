@@ -41,7 +41,7 @@ class Prop2Controller extends Controller
                     new DropdownItem('Menu item 1'),
                     new DropdownItem('Menu item 2'),
                     new DropdownItem('Menu item 3'),
-                ], null, StyleClassType::DARK))
+                ], null, StyleClassType::SECONDARY))
                     ->title('$50.000 Challenge', StyleClassType::INFO)
                     ->description('Some description', StyleClassType::INFO)
                     ->icon(DcatIcon::SETTINGS, StyleClassType::INFO);
@@ -54,8 +54,8 @@ class Prop2Controller extends Controller
                 $widget->add('You are here', 'Step1 - Challenge Account', true);
                 $widget->add('Next Phase', 'Step2 - Funded Account');
                 $widget->add('Funded', 'Last stage');
-                //                $widget->stepActiveClass(StyleClassType::PRIMARY);
-                //                $widget->stepInactiveClass(StyleClassType::SECONDARY);
+                $widget->stepActiveClass(StyleClassType::PRIMARY);
+                $widget->stepInactiveClass(StyleClassType::SECONDARY);
 
                 $row->column(['sm' => 12], $widget);
             })
@@ -118,10 +118,11 @@ class Prop2Controller extends Controller
                 $row->column(12, $features);
             })
             ->body(function (Row $row) {
-                $row->column(['xl' => 3, 'md' => 6], (new StatProgressRadial('Passing', 'Minimum trading Days', 2 / 5 * 100, '2/5', StyleClassType::INFO))->withCard());
-                $row->column(['xl' => 3, 'md' => 6], (new StatProgressRadial('Passing', 'Maximum trading Days', 2 / 30 * 100, '2/30', StyleClassType::INFO))->withCard());
-                $row->column(['xl' => 3, 'md' => 6], (new StatProgressRadial('Passing', 'Max DrawDown', 400 / 500 * 100, '-$400/-$500', StyleClassType::DANGER))->withCard());
-                $row->column(['xl' => 3, 'md' => 6], (new StatProgressRadial('Not Passing', 'Profit', 3000 / 5000 * 100, '$3000/$5000', StyleClassType::WARNING))->withCard());
+                $row->column(['xl' => 2, 'md' => 6], (new StatProgressRadial('Passing', 'Minimum trading Days', 2 / 5 * 100, '2/5', StyleClassType::SUCCESS))->withCard());
+                $row->column(['xl' => 2, 'md' => 6], (new StatProgressRadial('Passing', 'Maximum trading Days', 2 / 30 * 100, '2/30', StyleClassType::SUCCESS))->withCard());
+                $row->column(['xl' => 2, 'md' => 6], (new StatProgressRadial('Passing', 'Max DrawDown', 400 / 500 * 100, '-$400/-$500', StyleClassType::SUCCESS))->withCard());
+                $row->column(['xl' => 2, 'md' => 6], (new StatProgressRadial('Passing', 'Daily Loss', -3000 / -5000 * 100, '-$3000/-$5000', StyleClassType::WARNING))->withCard());
+                $row->column(['xl' => 2, 'md' => 6], (new StatProgressRadial('Not Passing', 'Profit', 3000 / 5000 * 100, '$3000/$5000', StyleClassType::SUCCESS))->withCard());
             })
             ->body(function (Row $row) {
 
