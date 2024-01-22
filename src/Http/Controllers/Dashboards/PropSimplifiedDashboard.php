@@ -36,10 +36,10 @@ class PropSimplifiedDashboard
             ->body(function (Row $row) {
 
                 $widgetBalance = new BalanceChartWidget();
-                $row->column(8, $widgetBalance);
+                $row->column(['lg' => 8], $widgetBalance);
 
                 $accountData = new SimplifiedAccountDataCard();
-                $row->column(4, $accountData);
+                $row->column(['lg' => 4], $accountData);
                 // $radialBar = new RadialBarChart();
                 // $radialBar->value(89);
                 // $radialBar->hollowSize(30);
@@ -54,10 +54,10 @@ class PropSimplifiedDashboard
             ->body(function (Row $row) {
 
                 $to = new TradingObjectiveCard();
-                $row->column(8, $to);
+                $row->column(['xl' => 7, 'lg' => 6], $to);
 
                 $accountData = new StatisticsCard();
-                $row->column(4, $accountData);
+                $row->column(['xl' => 5, 'lg' => 6], $accountData);
             })
             // ->body(function (Row $row) {
             //     $row->column(6, new TradingInstrumentsCard());
