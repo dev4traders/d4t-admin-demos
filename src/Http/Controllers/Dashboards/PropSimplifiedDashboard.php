@@ -5,10 +5,10 @@ namespace D4T\Admin\Demos\Http\Controllers\Dashboards;
 use Dcat\Admin\DcatIcon;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Layout\Content;
-use Dcat\Admin\Widgets\SimpleCard;
-use Dcat\Admin\Widgets\IconWithToolTip;
-use D4T\Admin\Demos\Http\Widgets\AccountDataCard;
-use Dcat\Admin\Widgets\ApexCharts\RadialBarChart;
+use D4T\Core\Enums\StyleClassType;
+use Dcat\Admin\Widgets\DropdownItem;
+use Dcat\Admin\Widgets\DropdownWithIcon;
+use D4T\Admin\Demos\Http\Widgets\StatisticsCard;
 use D4T\Admin\Demos\Http\Widgets\TradeHistoryCard;
 use D4T\Admin\Demos\Http\Widgets\BalanceChartWidget;
 use D4T\Admin\Demos\Http\Widgets\TradingObjectiveCard;
@@ -16,35 +16,55 @@ use D4T\Admin\Demos\Http\Widgets\SimplifiedAccountDataCard;
 
 class PropSimplifiedDashboard
 {
-    public static function make(Content $content) : Content
+    public static function make(Content $content): Content
     {
         return $content
             ->header('PropSimplified Dashboard')
             ->description('Account Statistics...')
             ->body(function (Row $row) {
+                $selector = (new DropdownWithIcon([
+                    new DropdownItem('Menu item 1'),
+                    new DropdownItem('Menu item 2'),
+                    new DropdownItem('Menu item 3'),
+                ], null, StyleClassType::DARK))
+                    ->title('$50.000 Challenge', StyleClassType::INFO)
+                    ->description('Some description', StyleClassType::INFO)
+                    ->icon(DcatIcon::SETTINGS, StyleClassType::INFO);
+
+                $row->column(12, $selector);
+            })
+            ->body(function (Row $row) {
 
                 $widgetBalance = new BalanceChartWidget();
-                $row->column(9, $widgetBalance);
+                $row->column(8, $widgetBalance);
 
-                $radialBar = new RadialBarChart();
-                $radialBar->value(89);
-                $radialBar->hollowSize(30);
-                //$radialBar->height(380);
-                $row->column(
-                    3,
-                    (new SimpleCard('Profit Target', $radialBar))->tool(new IconWithToolTip(DcatIcon::HELP(), 'Profit Target'))
-                        //->style('height: 380px;')
-                        ->footer('<span class="font-weight-bold">$3000</span>/<span class="text-muted">$5000</span>')
-                );
+                $accountData = new SimplifiedAccountDataCard();
+                $row->column(4, $accountData);
+                // $radialBar = new RadialBarChart();
+                // $radialBar->value(89);
+                // $radialBar->hollowSize(30);
+                // //$radialBar->height(380);
+                // $row->column(
+                //     3,
+                //     (new SimpleCard('Profit Target', $radialBar))->tool(new IconWithToolTip(DcatIcon::HELP(), 'Profit Target'))
+                //         //->style('height: 380px;')
+                //         ->footer('<span class="font-weight-bold">$3000</span>/<span class="text-muted">$5000</span>')
+                // );
             })
             ->body(function (Row $row) {
 
                 $to = new TradingObjectiveCard();
-                $row->column(9, $to);
+                $row->column(8, $to);
 
-                $accountData = new SimplifiedAccountDataCard();
-                $row->column(3, $accountData);
+                $accountData = new StatisticsCard();
+                $row->column(4, $accountData);
             })
+            // ->body(function (Row $row) {
+            //     $row->column(6, new TradingInstrumentsCard());
+
+            //     $stat = new StatisticsCard();
+            //     $row->column(6, $stat);
+            // })
             ->body(function (Row $row) {
 
                 $history = new TradeHistoryCard();
