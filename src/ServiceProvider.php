@@ -15,9 +15,10 @@ class ServiceProvider extends ServiceProviderBase
     const DASHBOARDS = 'dashboards';
     const DASHBOARD_ANALYTIC = 'dashbords/analytic';
     const DASHBOARD_PROP = 'dashbords/prop';
+    const DASHBOARD_PROP2 = 'dashbords/prop2';
+    const DASHBOARD_PROP_SIMPLIFIED = 'dashbords/prop-simplified';
 
     const DASHBOARD_WIDGETS = 'dashbords/widgets';
-    const DASHBOARD_PROP_SIMPLIFIED = 'dashbords/prop-simplified';
 
     const COMPONENTS = 'components';
     const COMPONENTS_ACCORDION = 'components.accordion';
@@ -67,6 +68,7 @@ class ServiceProvider extends ServiceProviderBase
     const PERMISSION_DASHBOARDS = 'dashboards';
     const PERMISSION_DASHBOARD_ANALYTIC = 'dashbord.analytic';
     const PERMISSION_DASHBOARD_PROP = 'dashbord.prop';
+    const PERMISSION_DASHBOARD_PROP2 = 'dashboard.prop2';
     const PERMISSION_DASHBOARD_PROP_SIMPLIFIED = 'dashbord.prop-simplified';
 
     const PERMISSION_COMPONENTS = 'components';
@@ -143,6 +145,13 @@ class ServiceProvider extends ServiceProviderBase
             'uri'       => self::DASHBOARD_PROP,
             'parent' => 'Dashboards',
             'permission_slug' => self::PERMISSION_DASHBOARD_PROP
+        ],
+        [
+            'title'     => 'prop2',
+            'icon' => 'fa-bars',
+            'uri'       => self::DASHBOARD_PROP2,
+            'parent' => 'Dashboards',
+            'permission_slug' => self::PERMISSION_DASHBOARD_PROP2
         ],
         [
             'title'     => 'prop-simplified',
@@ -468,6 +477,12 @@ class ServiceProvider extends ServiceProviderBase
             'slug' => self::PERMISSION_DASHBOARD_PROP,
             'name' => 'Manager Demos Prop',
             'path' => self::DASHBOARD_PROP,
+        ],
+        [
+            'parent' => self::PERMISSION_DEMOS,
+            'slug' => self::PERMISSION_DASHBOARD_PROP2,
+            'name' => 'Manager Demos Prop2',
+            'path' => self::DASHBOARD_PROP2,
         ],
         [
             'parent' => self::PERMISSION_DEMOS,

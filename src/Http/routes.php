@@ -1,6 +1,5 @@
 <?php
 
-use D4T\Admin\Demos\Http\Controllers\Dashboards\WidgetController;
 use Dcat\Admin\Layout\Content;
 use D4T\Admin\Demos\ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +8,7 @@ use D4T\Admin\Demos\Http\Controllers\TableController;
 use D4T\Admin\Demos\Http\Controllers\LayoutController;
 use D4T\Admin\Demos\Http\Controllers\Forms\FormController;
 use D4T\Admin\Demos\Http\Controllers\Grids\GridController;
+use D4T\Admin\Helpers\Http\Controllers\ScaffoldController;
 use D4T\Admin\Demos\Http\Controllers\Forms\EditorController;
 use D4T\Admin\Demos\Http\Controllers\Grids\ReportController;
 use D4T\Admin\Demos\Http\Controllers\BasicStructureController;
@@ -21,23 +21,25 @@ use D4T\Admin\Demos\Http\Controllers\Dashboards\PropController;
 use D4T\Admin\Demos\Http\Controllers\Components\AlertController;
 use D4T\Admin\Demos\Http\Controllers\Components\ChartController;
 use D4T\Admin\Demos\Http\Controllers\Components\ModalController;
+use D4T\Admin\Demos\Http\Controllers\Dashboards\Prop2Controller;
 use D4T\Admin\Demos\Http\Controllers\Grids\CustomGridController;
 use D4T\Admin\Demos\Http\Controllers\Components\ToastrController;
+use D4T\Admin\Demos\Http\Controllers\Dashboards\WidgetController;
 use D4T\Admin\Demos\Http\Controllers\Grids\BorderTableController;
 use D4T\Admin\Demos\Http\Controllers\Components\LoadingController;
 use D4T\Admin\Demos\Http\Controllers\Grids\FixedColumnsController;
+use D4T\Admin\Demos\Http\Controllers\Components\BadgeDotController;
 use D4T\Admin\Demos\Http\Controllers\Components\MarkdownController;
 use D4T\Admin\Demos\Http\Controllers\Components\ProgressController;
 use D4T\Admin\Demos\Http\Controllers\Dashboards\AnalyticController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\Top250Controller;
 use D4T\Admin\Demos\Http\Controllers\Components\AccordionController;
-use D4T\Admin\Demos\Http\Controllers\Components\BadgeDotController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\InTheaterController;
 use D4T\Admin\Demos\Http\Controllers\Components\DropdownMenuController;
 use D4T\Admin\Demos\Http\Controllers\Grids\Movies\ComingSoonController;
 use D4T\Admin\Demos\Http\Controllers\Components\TipAndPopoverController;
-use D4T\Admin\Demos\Http\Controllers\Components\CheckboxAndRadioController;
 use D4T\Admin\Demos\Http\Controllers\Dashboards\PropSimplifiedController;
+use D4T\Admin\Demos\Http\Controllers\Components\CheckboxAndRadioController;
 
 //Route::get(ServiceProvider::URL_HELPERS_SCAFFOLD, ScaffoldController::class.'@index');
 
@@ -49,6 +51,11 @@ Route::get(ServiceProvider::DASHBOARD_PROP, function (Content $content) {
     return (new PropController)->index($content);
 })->name(ServiceProvider::DASHBOARD_PROP);
 Route::get(ServiceProvider::DASHBOARD_PROP.'/preview', 'D4T\Admin\Demos\Http\Controllers\Dashboards\PropController@preview');
+
+Route::get(ServiceProvider::DASHBOARD_PROP2, function (Content $content) {
+    return (new Prop2Controller)->index($content);
+})->name(ServiceProvider::DASHBOARD_PROP2);
+Route::get(ServiceProvider::DASHBOARD_PROP2.'/preview', 'D4T\Admin\Demos\Http\Controllers\Dashboards\Prop2Controller@preview');
 
 Route::get(ServiceProvider::DASHBOARD_WIDGETS, function (Content $content) {
     return (new WidgetController())->index($content);
