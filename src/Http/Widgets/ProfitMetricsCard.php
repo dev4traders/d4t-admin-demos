@@ -14,6 +14,7 @@ class ProfitMetricsCard extends MetricsCard
     public function __construct()
     {
         $radialBar = new AreaChart();
+        $radialBar->isSparkline();
         $radialBar->value([
             0 => [
                 'name' => 'chart',

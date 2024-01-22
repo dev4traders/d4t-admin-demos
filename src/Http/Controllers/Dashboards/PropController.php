@@ -119,7 +119,7 @@ class PropController extends Controller
                 $row->column(['xl' => 3, 'md' => 6], new ProfitMetricsCard());
             })
             ->body(function (Row $row) {
-                $widgetBalance = new BalanceChartWidget();
+                $widgetBalance = new BalanceChartWidget(300);
                 $row->column(12, $widgetBalance);
             })
             ->body(function (Row $row) {

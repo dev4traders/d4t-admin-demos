@@ -35,7 +35,9 @@ class PropSimplifiedDashboard
             })
             ->body(function (Row $row) {
 
-                $widgetBalance = new BalanceChartWidget();
+                $widgetBalance = new BalanceChartWidget(515, [
+                    'lg' => 300
+                ]);
                 $row->column(['lg' => 8], $widgetBalance);
 
                 $accountData = new SimplifiedAccountDataCard();
