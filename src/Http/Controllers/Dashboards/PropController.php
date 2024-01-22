@@ -10,6 +10,7 @@ use Dcat\Admin\Widgets\ImageAdv;
 use D4T\Core\Enums\StyleClassType;
 use Dcat\Admin\Traits\PreviewCode;
 use Dcat\Admin\Widgets\IconicLink;
+use Dcat\Admin\Widgets\StepsWithProgressBar;
 use Illuminate\Routing\Controller;
 use Dcat\Admin\Widgets\DropdownItem;
 use Dcat\Admin\Widgets\FeaturedCard;
@@ -111,6 +112,14 @@ class PropController extends Controller
                 $widget->add('Funded', 'Last stage');
 //                $widget->stepActiveClass(StyleClassType::PRIMARY);
 //                $widget->stepInactiveClass(StyleClassType::SECONDARY);
+
+                $row->column(['sm' => 12], $widget);
+            })
+            ->body(function (Row $row) {
+                $widget = new StepsWithProgressBar();
+                $widget->add('Phase 1', 'Ended as 19.10.2023', true);
+                $widget->add('Phase 2', '7 / 30 days');
+                $widget->add('Funded', '');
 
                 $row->column(['sm' => 12], $widget);
             })
