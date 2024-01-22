@@ -54,8 +54,8 @@ class Prop2Controller extends Controller
                 $widget->add('You are here', 'Step1 - Challenge Account', true);
                 $widget->add('Next Phase', 'Step2 - Funded Account');
                 $widget->add('Funded', 'Last stage');
-                $widget->stepActiveClass(StyleClassType::PRIMARY);
-                $widget->stepInactiveClass(StyleClassType::SECONDARY);
+                // $widget->stepActiveClass(StyleClassType::PRIMARY);
+                // $widget->stepInactiveClass(StyleClassType::SECONDARY);
 
                 $row->column(['sm' => 12], $widget);
             })
