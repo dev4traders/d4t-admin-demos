@@ -109,8 +109,8 @@ class PropController extends Controller
                 $widget->add('You are here', 'Step1 - Challenge Account', true);
                 $widget->add('Next Phase', 'Step2 - Funded Account');
                 $widget->add('Funded', 'Last stage');
-                $widget->stepActiveClass(StyleClassType::LIGHT);
-                $widget->stepInactiveClass(StyleClassType::DARK);
+//                $widget->stepActiveClass(StyleClassType::PRIMARY);
+//                $widget->stepInactiveClass(StyleClassType::SECONDARY);
 
                 $row->column(['sm' => 12], $widget);
             })
