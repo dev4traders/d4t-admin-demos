@@ -121,9 +121,33 @@ class PropController extends Controller
                     ->finishedClass(StyleClassType::SECONDARY)
                     ->activeClass(StyleClassType::PRIMARY)
                     ->disabledClass(StyleClassType::DANGER);
-                $widget->add('Phase 1', 'Ended as 19.10.2023', 100, false, false, "asd");
-                $widget->add('Phase 2', '7 / 30 days', 20,true);
-                $widget->add('Funded', '', 0, false, true);
+                $widget->add(
+                    'Phase 1',
+                    'Ended as 19.10.2023',
+                    100,
+                    false,
+                    false,
+                    "asd",
+                    DcatIcon::MAP(true)
+                );
+                $widget->add(
+                    'Phase 2',
+                    '7 / 30 days',
+                    20,
+                    true,
+                    false,
+                    '',
+                    DcatIcon::CALENDAR(true)
+                );
+                $widget->add(
+                    'Funded',
+                    '',
+                    0,
+                    false,
+                    true,
+                '',
+                    DcatIcon::HELP(true)
+                );
 
                 $row->column(['sm' => 12], $widget);
             })
