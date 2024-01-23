@@ -123,7 +123,7 @@ class PropController extends Controller
                     ->finishedClass(StyleClassType::SECONDARY)
                     ->activeClass(StyleClassType::PRIMARY)
                     ->disabledClass(StyleClassType::DANGER)
-                    ->borderClass(StyleClassType::SUCCESS);
+                    ->borderClass(StyleClassType::PRIMARY);
                 $widget->add(
                     'Phase 1',
                     'Ended as 19.10.2023',
@@ -160,7 +160,7 @@ class PropController extends Controller
                     ->finishedClass(StyleClassType::SECONDARY)
                     ->activeClass(StyleClassType::PRIMARY)
                     ->disabledClass(StyleClassType::DANGER)
-                    ->borderClass(StyleClassType::SUCCESS);
+                    ->borderClass(StyleClassType::PRIMARY);
                 $widget->add(
                     'Phase 1',
                     'Ended as 19.10.2023',
