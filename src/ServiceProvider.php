@@ -23,7 +23,7 @@ class ServiceProvider extends ServiceProviderBase
     const COMPONENTS = 'components';
     const COMPONENTS_ACCORDION = 'components.accordion';
     const COMPONENTS_ALERTS = 'components.alerts';
-    const COMPONENTS_STEPS = 'components.setps';
+    const COMPONENTS_STEPS = 'components.steps';
     const COMPONENTS_BADGE_DOT = 'components.badge_dot';
     const COMPONENTS_CHECK_AND_RADIO = 'components.check_and_radio';
     const COMPONENTS_DROPDOWN = 'components.dropdown';
