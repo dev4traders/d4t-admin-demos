@@ -23,6 +23,7 @@ class ServiceProvider extends ServiceProviderBase
     const COMPONENTS = 'components';
     const COMPONENTS_ACCORDION = 'components.accordion';
     const COMPONENTS_ALERTS = 'components.alerts';
+    const COMPONENTS_STEPS = 'components.steps';
     const COMPONENTS_BADGE_DOT = 'components.badge_dot';
     const COMPONENTS_CHECK_AND_RADIO = 'components.check_and_radio';
     const COMPONENTS_DROPDOWN = 'components.dropdown';
@@ -74,6 +75,7 @@ class ServiceProvider extends ServiceProviderBase
     const PERMISSION_COMPONENTS = 'components';
     const PERMISSION_COMPONENTS_ACCORDION = 'components.accordion';
     const PERMISSION_COMPONENTS_ALERTS = 'components.alerts';
+    const PERMISSION_COMPONENTS_STEPS = 'components.steps';
     const PERMISSION_COMPONENTS_BADGE_DOT  = 'components.badge_dot';
     const PERMISSION_COMPONENTS_CHECK_AND_RADIO = 'components.check_and_radio';
     const PERMISSION_COMPONENTS_DROPDOWN = 'components.dropdown';
@@ -182,6 +184,13 @@ class ServiceProvider extends ServiceProviderBase
             'uri'       => self::COMPONENTS_ALERTS,
             'parent' => 'Components',
             'permission_slug' => self::PERMISSION_COMPONENTS_ALERTS
+        ],
+        [
+            'title'     => 'Steps',
+            'icon' => 'fa-bars',
+            'uri'       => self::COMPONENTS_STEPS,
+            'parent' => 'Components',
+            'permission_slug' => self::PERMISSION_COMPONENTS_STEPS
         ],
         [
             'title'     => 'BadgeDot',
@@ -507,6 +516,12 @@ class ServiceProvider extends ServiceProviderBase
             'slug' => self::PERMISSION_COMPONENTS_ALERTS,
             'name' => 'Manager Demos Alerts',
             'path' => self::COMPONENTS_ALERTS,
+        ],
+        [
+            'parent' => self::PERMISSION_DEMOS,
+            'slug' => self::PERMISSION_COMPONENTS_STEPS,
+            'name' => 'Manager Demos Steps',
+            'path' => self::COMPONENTS_STEPS,
         ],
         [
             'parent' => self::PERMISSION_DEMOS,

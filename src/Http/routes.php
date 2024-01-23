@@ -21,6 +21,7 @@ use D4T\Admin\Demos\Http\Controllers\Dashboards\PropController;
 use D4T\Admin\Demos\Http\Controllers\Components\AlertController;
 use D4T\Admin\Demos\Http\Controllers\Components\ChartController;
 use D4T\Admin\Demos\Http\Controllers\Components\ModalController;
+use D4T\Admin\Demos\Http\Controllers\Components\StepsController;
 use D4T\Admin\Demos\Http\Controllers\Dashboards\Prop2Controller;
 use D4T\Admin\Demos\Http\Controllers\Grids\CustomGridController;
 use D4T\Admin\Demos\Http\Controllers\Components\ToastrController;
@@ -74,6 +75,10 @@ Route::get(ServiceProvider::COMPONENTS_ACCORDION, function (Content $content) {
 Route::get(ServiceProvider::COMPONENTS_ALERTS, function (Content $content) {
     return (new AlertController)->index($content);
 })->name(ServiceProvider::COMPONENTS_ALERTS);
+
+Route::get(ServiceProvider::COMPONENTS_STEPS, function (Content $content) {
+    return (new StepsController)->index($content);
+})->name(ServiceProvider::COMPONENTS_STEPS);
 
 Route::get(ServiceProvider::COMPONENTS_BADGE_DOT, function (Content $content) {
     return (new BadgeDotController)->index($content);

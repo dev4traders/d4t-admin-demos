@@ -10,4 +10,7 @@ return [
     '1.0.3' => [
         'Added Prop2 Dash'
     ],
+    '1.0.4' => [
+        'Added Steps Components'
+    ],
 ];
