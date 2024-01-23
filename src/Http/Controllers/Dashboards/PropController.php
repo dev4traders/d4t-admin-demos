@@ -11,6 +11,7 @@ use D4T\Core\Enums\StyleClassType;
 use Dcat\Admin\Traits\PreviewCode;
 use Dcat\Admin\Widgets\IconicLink;
 use Dcat\Admin\Widgets\StepsWithProgressBar;
+use Dcat\Admin\Widgets\StepsWithProgressBarCustom;
 use Illuminate\Routing\Controller;
 use Dcat\Admin\Widgets\DropdownItem;
 use Dcat\Admin\Widgets\FeaturedCard;
@@ -118,9 +119,11 @@ class PropController extends Controller
             ->body(function (Row $row) {
                 $widget = (new StepsWithProgressBar())
                     ->bgClass(StyleClassType::LIGHT)
+                    //->textClass(StyleClassType::PRIMARY)
                     ->finishedClass(StyleClassType::SECONDARY)
                     ->activeClass(StyleClassType::PRIMARY)
-                    ->disabledClass(StyleClassType::DANGER);
+                    ->disabledClass(StyleClassType::DANGER)
+                    ->borderClass(StyleClassType::SUCCESS);
                 $widget->add(
                     'Phase 1',
                     'Ended as 19.10.2023',
@@ -146,6 +149,43 @@ class PropController extends Controller
                     false,
                     true,
                 '',
+                    DcatIcon::HELP(true)
+                );
+
+                $row->column(['sm' => 12], $widget);
+            })
+            ->body(function (Row $row) {
+                $widget = (new StepsWithProgressBarCustom())
+                    ->bgClass(StyleClassType::LIGHT)
+                    ->finishedClass(StyleClassType::SECONDARY)
+                    ->activeClass(StyleClassType::PRIMARY)
+                    ->disabledClass(StyleClassType::DANGER)
+                    ->borderClass(StyleClassType::SUCCESS);
+                $widget->add(
+                    'Phase 1',
+                    'Ended as 19.10.2023',
+                    100,
+                    false,
+                    false,
+                    "asd",
+                    DcatIcon::MAP(true)
+                );
+                $widget->add(
+                    'Phase 2',
+                    '7 / 30 days',
+                    20,
+                    true,
+                    false,
+                    '',
+                    DcatIcon::CALENDAR(true)
+                );
+                $widget->add(
+                    'Funded',
+                    '',
+                    0,
+                    false,
+                    true,
+                    '',
                     DcatIcon::HELP(true)
                 );
 
