@@ -116,10 +116,14 @@ class PropController extends Controller
                 $row->column(['sm' => 12], $widget);
             })
             ->body(function (Row $row) {
-                $widget = new StepsWithProgressBar();
-                $widget->add('Phase 1', 'Ended as 19.10.2023', true);
-                $widget->add('Phase 2', '7 / 30 days');
-                $widget->add('Funded', '');
+                $widget = (new StepsWithProgressBar())
+                    ->bgClass(StyleClassType::LIGHT)
+                    ->finishedClass(StyleClassType::SECONDARY)
+                    ->activeClass(StyleClassType::PRIMARY)
+                    ->disabledClass(StyleClassType::DANGER);
+                $widget->add('Phase 1', 'Ended as 19.10.2023', 100, false, false, "asd");
+                $widget->add('Phase 2', '7 / 30 days', 20,true);
+                $widget->add('Funded', '', 0, false, true);
 
                 $row->column(['sm' => 12], $widget);
             })
