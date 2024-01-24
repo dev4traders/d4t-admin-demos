@@ -23,6 +23,7 @@ use D4T\Admin\Demos\Http\Controllers\Components\ChartController;
 use D4T\Admin\Demos\Http\Controllers\Components\ModalController;
 use D4T\Admin\Demos\Http\Controllers\Components\StepsController;
 use D4T\Admin\Demos\Http\Controllers\Dashboards\Prop2Controller;
+use D4T\Admin\Demos\Http\Controllers\Dashboards\ArianController;
 use D4T\Admin\Demos\Http\Controllers\Grids\CustomGridController;
 use D4T\Admin\Demos\Http\Controllers\Components\ToastrController;
 use D4T\Admin\Demos\Http\Controllers\Dashboards\WidgetController;
@@ -57,6 +58,10 @@ Route::get(ServiceProvider::DASHBOARD_PROP2, function (Content $content) {
     return (new Prop2Controller)->index($content);
 })->name(ServiceProvider::DASHBOARD_PROP2);
 Route::get(ServiceProvider::DASHBOARD_PROP2.'/preview', 'D4T\Admin\Demos\Http\Controllers\Dashboards\Prop2Controller@preview');
+
+Route::get(ServiceProvider::DASHBOARD_ARIAN, function (Content $content) {
+    return (new ArianController)->index($content);
+})->name(ServiceProvider::DASHBOARD_ARIAN);
 
 Route::get(ServiceProvider::DASHBOARD_WIDGETS, function (Content $content) {
     return (new WidgetController())->index($content);
