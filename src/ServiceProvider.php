@@ -510,6 +510,12 @@ class ServiceProvider extends ServiceProviderBase
         ],
         [
             'parent' => self::PERMISSION_DEMOS,
+            'slug' => self::PERMISSION_DASHBOARD_ARIAN,
+            'name' => 'Manager Demos Prop Arian',
+            'path' => self::DASHBOARD_ARIAN,
+        ],
+        [
+            'parent' => self::PERMISSION_DEMOS,
             'slug' => self::PERMISSION_COMPONENTS,
             'name' => 'Manager Demos Components',
             'path' => self::COMPONENTS,

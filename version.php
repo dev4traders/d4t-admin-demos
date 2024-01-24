@@ -13,4 +13,7 @@ return [
     '1.0.4' => [
         'Added Steps Components'
     ],
+    '1.0.5' => [
+        'Added Dash Arian RTL'
+    ],
 ];
