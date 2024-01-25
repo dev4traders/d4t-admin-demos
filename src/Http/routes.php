@@ -59,10 +59,6 @@ Route::get(ServiceProvider::DASHBOARD_PROP2, function (Content $content) {
 })->name(ServiceProvider::DASHBOARD_PROP2);
 Route::get(ServiceProvider::DASHBOARD_PROP2.'/preview', 'D4T\Admin\Demos\Http\Controllers\Dashboards\Prop2Controller@preview');
 
-Route::get(ServiceProvider::DASHBOARD_ARIAN, function (Content $content) {
-    return (new ArianController)->index($content);
-})->name(ServiceProvider::DASHBOARD_ARIAN);
-
 Route::get(ServiceProvider::DASHBOARD_WIDGETS, function (Content $content) {
     return (new WidgetController())->index($content);
 })->name(ServiceProvider::DASHBOARD_WIDGETS);

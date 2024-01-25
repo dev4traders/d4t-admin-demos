@@ -17,7 +17,6 @@ class ServiceProvider extends ServiceProviderBase
     const DASHBOARD_PROP = 'dashbords/prop';
     const DASHBOARD_PROP2 = 'dashbords/prop2';
     const DASHBOARD_PROP_SIMPLIFIED = 'dashbords/prop-simplified';
-    const DASHBOARD_ARIAN = 'dashbords/arian';
 
     const DASHBOARD_WIDGETS = 'dashbords/widgets';
 
@@ -72,7 +71,6 @@ class ServiceProvider extends ServiceProviderBase
     const PERMISSION_DASHBOARD_PROP = 'dashbord.prop';
     const PERMISSION_DASHBOARD_PROP2 = 'dashboard.prop2';
     const PERMISSION_DASHBOARD_PROP_SIMPLIFIED = 'dashbord.prop-simplified';
-    const PERMISSION_DASHBOARD_ARIAN = 'dashbord.arian';
 
     const PERMISSION_COMPONENTS = 'components';
     const PERMISSION_COMPONENTS_ACCORDION = 'components.accordion';
@@ -163,13 +161,6 @@ class ServiceProvider extends ServiceProviderBase
             'uri'       => self::DASHBOARD_PROP_SIMPLIFIED,
             'parent' => 'Dashboards',
             'permission_slug' => self::PERMISSION_DASHBOARD_PROP_SIMPLIFIED
-        ],
-        [
-            'title'     => 'arian',
-            'icon' => 'fa-bars',
-            'uri'       => self::DASHBOARD_ARIAN,
-            'parent' => 'Dashboards',
-            'permission_slug' => self::PERMISSION_DASHBOARD_ARIAN
         ],
 
         // Components
@@ -507,12 +498,6 @@ class ServiceProvider extends ServiceProviderBase
             'slug' => self::PERMISSION_DASHBOARD_PROP_SIMPLIFIED,
             'name' => 'Manager Demos Prop Simplified',
             'path' => self::DASHBOARD_PROP_SIMPLIFIED,
-        ],
-        [
-            'parent' => self::PERMISSION_DEMOS,
-            'slug' => self::PERMISSION_DASHBOARD_ARIAN,
-            'name' => 'Manager Demos Prop Arian',
-            'path' => self::DASHBOARD_ARIAN,
         ],
         [
             'parent' => self::PERMISSION_DEMOS,

@@ -16,4 +16,7 @@ return [
     '1.0.5' => [
         'Added Dash Arian RTL'
     ],
+    '1.0.6' => [
+        'Moved to extension'
+    ],
 ];
