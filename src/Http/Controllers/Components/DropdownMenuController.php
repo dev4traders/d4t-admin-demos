@@ -24,17 +24,17 @@ class DropdownMenuController extends Controller {
 			->breadcrumb($header)
 			->row($this->buildPreviewButton())
 			->row($this->base())
-			->row($this->outline())
-			->row($this->split())
-			->row($this->outlineSplit())
-			->row($this->specific());
+			->row($this->outline());
+//			->row($this->split())
+//			->row($this->outlineSplit())
+//			->row($this->specific());
 	}
 
 	public function base() {
 		$base = collect($this->types)->map(function ($type) {
 			$dropdown = new Dropdown();
 			return $dropdown->button($type->value)
-				->buttonClass($type)
+				->buttonClass($type->value)
 				->add('option1')
 				->add('option2', null, TRUE)
 				->add('option1', null, TRUE, TRUE)
@@ -47,7 +47,7 @@ class DropdownMenuController extends Controller {
 		$base = collect($this->types)->map(function ($type) {
 			$dropdown = new Dropdown();
 			return $dropdown->button($type->value)
-				->buttonClass($type, true)
+				->buttonClass($type->value, true)
 				->add('option1')
 				->add('option2', null, TRUE)
 				->add('option1', null, TRUE, TRUE)
@@ -60,7 +60,7 @@ class DropdownMenuController extends Controller {
 		$base = collect($this->types)->map(function ($type) {
 			$dropdown = new Dropdown();
 			return $dropdown->button($type->value)
-				->buttonClass($type)
+				->buttonClass($type->value)
 				->toggleSplit()
 				->add('option1')
 				->add('option2', null, TRUE)
@@ -74,7 +74,7 @@ class DropdownMenuController extends Controller {
 		$base = collect($this->types)->map(function ($type) {
 			$dropdown = new Dropdown();
 			return $dropdown->button($type->value)
-				->buttonClass($type, true)
+				->buttonClass($type->value, true)
 				->toggleSplit()
 				->add('option1')
 				->add('option2', null, TRUE)
@@ -87,7 +87,7 @@ class DropdownMenuController extends Controller {
 	public function specific() {
 		$hiddenArrow = new Dropdown();
 		$hiddenArrow->button('hidden arrow')
-			->buttonClass(ButtonClassType::PRIMARY)
+			->buttonClass(ButtonClassType::PRIMARY->value)
 			->hideArrow()
 			->add('option1')
 			->add('option2', null, TRUE)
@@ -95,14 +95,14 @@ class DropdownMenuController extends Controller {
 			->render();
 		$iconWithDropdown = new Dropdown();
 		$iconWithDropdown->button('with icon')
-			->buttonClass(ButtonClassType::PRIMARY)
+			->buttonClass(ButtonClassType::PRIMARY->value)
 			->icon(DcatIcon::MENU)
 			->add('option1')
 			->add('option2', null, TRUE)
 			->add('option1', null, TRUE, TRUE)
 			->render();
 		$icon = new Dropdown();
-		$icon->buttonClass(ButtonClassType::PRIMARY)
+		$icon->buttonClass(ButtonClassType::PRIMARY->value)
             ->rounded()
 			->hideArrow()
 			->icon( DcatIcon::DOTS_VERTICAL_ROUNDED)

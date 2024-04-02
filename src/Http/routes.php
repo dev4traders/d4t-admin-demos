@@ -42,10 +42,10 @@ Route::get(ServiceProvider::DASHBOARD_ANALYTIC, function (Content $content) {
     return (new AnalyticController)->index($content);
 })->name(ServiceProvider::DASHBOARD_ANALYTIC);
 
-Route::get(ServiceProvider::DASHBOARD_PROP, function (Content $content) {
-    return (new PropController)->index($content);
-})->name(ServiceProvider::DASHBOARD_PROP);
-Route::get(ServiceProvider::DASHBOARD_PROP.'/preview', 'Dashboards\PropController@preview');
+//Route::get(ServiceProvider::DASHBOARD_PROP, function (Content $content) {
+//    return (new PropController)->index($content);
+//})->name(ServiceProvider::DASHBOARD_PROP);
+//Route::get(ServiceProvider::DASHBOARD_PROP.'/preview', 'Dashboards\PropController@preview');
 
 Route::get(ServiceProvider::COMPONENTS_ACCORDION, function (Content $content) {
     return (new AccordionController)->index($content);

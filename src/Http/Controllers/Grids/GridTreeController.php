@@ -27,7 +27,7 @@ class GridTreeController extends Controller
         $grid->column('id')->bold()->sortable();
         $grid->column('name')->tree();
         $grid->column('order')->orderable();
-        $grid->column('slug')->label('primary');
+        $grid->column('slug')->label();
         $grid->column('http_path')->display(function ($path) {
             /** @var mixed $this */
             if (! $path) {

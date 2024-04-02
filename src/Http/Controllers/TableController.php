@@ -42,14 +42,14 @@ class TableController extends Controller
         });
 
         $content->row(function(Row $row) use($headers, $rows) {
-            $table1 = new Table($headers, $rows, StyleClassType::DARK);
+            $table1 = new Table($headers, $rows, StyleClassType::DARK->value);
 
             $row->column(12, new Card('Colored', $table1));
         });
 
         $content->row(function(Row $row) use($headers, $rows) {
             $table1 = new Table($headers, $rows);
-            $table1->headerClass(StyleClassType::DANGER);
+            $table1->headerClass(StyleClassType::DANGER->value);
 
             $row->column(12, new Card('Colored Header', $table1));
         });
