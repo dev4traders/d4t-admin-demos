@@ -72,7 +72,7 @@ class FormController extends Controller
         $form->url('form1.url', 'url');
         $form->ip('form1.ip', 'ip');
 
-        $form->color('form1.color', 'color');
+//        $form->color('form1.color', 'color');
 
         $form->divider();
 
