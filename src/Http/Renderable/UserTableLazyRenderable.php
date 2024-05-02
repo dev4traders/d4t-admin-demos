@@ -4,6 +4,7 @@ namespace D4T\Admin\Demos\Http\Renderable;
 
 use App\Models\User;
 use Dcat\Admin\Grid;
+use Funded\Core\Models\UserBase;
 use Dcat\Admin\Grid\LazyRenderable;
 use Dcat\Admin\Models\Administrator;
 
@@ -11,7 +12,7 @@ class UserTableLazyRenderable extends LazyRenderable
 {
     public function grid(): Grid
     {
-        return new Grid(new User(), function (Grid $grid) {
+        return new Grid(new UserBase(), function (Grid $grid) {
             $grid->column('id', 'ID')->sortable();
             $grid->column('username');
             $grid->column('name');

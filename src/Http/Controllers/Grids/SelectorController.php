@@ -6,6 +6,7 @@ use Dcat\Admin\Grid;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Traits\PreviewCode;
 use D4T\Admin\Demos\Repositories\TeaTable;
+use D4T\Core\Enums\StyleClassType;
 use Illuminate\Routing\Controller;
 
 class SelectorController extends Controller
@@ -26,7 +27,7 @@ class SelectorController extends Controller
             $grid->id('ID')->bold();
             $grid->name('名称');
             $grid->norms('规格');
-            $grid->category('类别')->label('default');
+            $grid->category('类别')->label(StyleClassType::PRIMARY);
             $grid->price('售价')->display(function ($value) {
                 return number_format($value / 1000, 2);
             });

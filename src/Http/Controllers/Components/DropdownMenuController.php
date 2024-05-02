@@ -10,6 +10,7 @@ use Dcat\Admin\Widgets\Dropdown;
 use Dcat\Admin\Traits\PreviewCode;
 use Illuminate\Routing\Controller;
 use Dcat\Admin\Enums\ButtonClassType;
+use Dcat\Admin\Widgets\DropdownAdv;
 
 class DropdownMenuController extends Controller {
 	use PreviewCode;
@@ -32,7 +33,7 @@ class DropdownMenuController extends Controller {
 
 	public function base() {
 		$base = collect($this->types)->map(function ($type) {
-			$dropdown = new Dropdown();
+			$dropdown = new DropdownAdv();
 			return $dropdown->button($type->value)
 				->buttonClass($type)
 				->add('option1')
@@ -45,7 +46,7 @@ class DropdownMenuController extends Controller {
 
 	public function outline() {
 		$base = collect($this->types)->map(function ($type) {
-			$dropdown = new Dropdown();
+			$dropdown = new DropdownAdv();
 			return $dropdown->button($type->value)
 				->buttonClass($type, true)
 				->add('option1')
@@ -58,7 +59,7 @@ class DropdownMenuController extends Controller {
 
 	public function split() {
 		$base = collect($this->types)->map(function ($type) {
-			$dropdown = new Dropdown();
+			$dropdown = new DropdownAdv();
 			return $dropdown->button($type->value)
 				->buttonClass($type)
 				->toggleSplit()
@@ -72,7 +73,7 @@ class DropdownMenuController extends Controller {
 
 	public function outlineSplit() {
 		$base = collect($this->types)->map(function ($type) {
-			$dropdown = new Dropdown();
+			$dropdown = new DropdownAdv();
 			return $dropdown->button($type->value)
 				->buttonClass($type, true)
 				->toggleSplit()
@@ -85,7 +86,7 @@ class DropdownMenuController extends Controller {
 	}
 
 	public function specific() {
-		$hiddenArrow = new Dropdown();
+		$hiddenArrow = new DropdownAdv();
 		$hiddenArrow->button('hidden arrow')
 			->buttonClass(ButtonClassType::PRIMARY)
 			->hideArrow()
@@ -93,7 +94,7 @@ class DropdownMenuController extends Controller {
 			->add('option2', null, TRUE)
 			->add('option1', null, TRUE, TRUE)
 			->render();
-		$iconWithDropdown = new Dropdown();
+		$iconWithDropdown = new DropdownAdv();
 		$iconWithDropdown->button('with icon')
 			->buttonClass(ButtonClassType::PRIMARY)
 			->icon(DcatIcon::MENU)
@@ -101,7 +102,7 @@ class DropdownMenuController extends Controller {
 			->add('option2', null, TRUE)
 			->add('option1', null, TRUE, TRUE)
 			->render();
-		$icon = new Dropdown();
+		$icon = new DropdownAdv();
 		$icon->buttonClass(ButtonClassType::PRIMARY)
             ->rounded()
 			->hideArrow()

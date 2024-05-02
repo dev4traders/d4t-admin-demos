@@ -2,6 +2,7 @@
 
 namespace D4T\Admin\Demos\Http\Controllers\Grids;
 
+use D4T\Core\Enums\StyleClassType;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Admin;
 use Illuminate\Support\Str;
@@ -27,7 +28,7 @@ class GridTreeController extends Controller
         $grid->column('id')->bold()->sortable();
         $grid->column('name')->tree();
         $grid->column('order')->orderable();
-        $grid->column('slug')->label('primary');
+        $grid->column('slug')->label(StyleClassType::PRIMARY);
         $grid->column('http_path')->display(function ($path) {
             /** @var mixed $this */
             if (! $path) {

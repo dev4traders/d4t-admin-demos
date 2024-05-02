@@ -5,12 +5,11 @@ namespace D4T\Admin\Demos\Http\Controllers\Components;
 use Faker\Factory;
 use Dcat\Admin\Layout\Row;
 use Dcat\Admin\Widgets\Card;
-use Dcat\Admin\Widgets\Code;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Widgets\Button;
+use D4T\Core\Enums\StyleClassType;
 use Illuminate\Routing\Controller;
 use Dcat\Admin\Enums\PlacementType;
-use D4T\Core\Enums\StyleClassType;
 
 class TipAndPopoverController extends Controller
 {

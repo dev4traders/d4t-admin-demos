@@ -93,7 +93,7 @@ Route::get('components-check-and-radio/preview', 'D4T\Admin\Demos\Http\Controlle
 Route::get(ServiceProvider::COMPONENTS_DROPDOWN, function (Content $content) {
     return (new DropdownMenuController)->index($content);
 })->name(ServiceProvider::COMPONENTS_DROPDOWN);
-Route::get('components-dropdown/preview', 'D4T\Admin\Demos\Http\Controllers\Components\DropdownMenuController@preview');
+Route::get(ServiceProvider::COMPONENTS_DROPDOWN.'/preview', 'D4T\Admin\Demos\Http\Controllers\Components\DropdownMenuController@preview');
 
 Route::get(ServiceProvider::COMPONENTS_PROGRESS, function (Content $content) {
     return (new ProgressController)->index($content);
